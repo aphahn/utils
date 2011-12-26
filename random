@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+import argparse
+import fileinput
+import random
+
+parser = argparse.ArgumentParser(description="Print random lines")
+parser.add_argument("-n", type=int, default=1, help="number of random lines to print, defaulting to 1")
+parser.add_argument("files", metavar="FILE", nargs="*", help="file[s] for input, defaulting to stdin")
+
+args = parser.parse_args()
+
+if args.n <= 0:
+    parser.error("n must be positive")
+
+lines = []
+for line in fileinput.input(args.files):
+    lines.append(line.rstrip('\r\n'))
+
+for i in xrange(args.n):
+    print random.choice(lines)
