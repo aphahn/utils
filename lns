@@ -15,12 +15,14 @@ def main():
     parser = make_parser()
     args = parser.parse_args()
 
-    if os.path.exists(args.one):
-        filename, linkname = args.one, args.two
-    elif os.path.exists(args.two):
-        linkname, filename = args.one, args.two
-    else:
+    exists = map(os.path.exists, [args.one, args.two])
+
+    if exists[0] == exists[1]:
         sys.exit("Exactly one of the two arguments must exist.")
+    elif exists[0]:
+        filename, linkname = args.one, args.two
+    else:
+        linkname, filename = args.one, args.two
 
     os.symlink(filename, linkname)
 
