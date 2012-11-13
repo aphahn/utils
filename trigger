@@ -8,7 +8,7 @@ from threading import Timer
 
 def create_parser():
     parser = OptionParser(usage="Usage: %prog [options] WATCHED-COMMAND [TRIGGERED-COMMAND]")
-    parser.add_option('-n', '--interval', type='float', default=2,
+    parser.add_option('-n', '--interval', type='float', default=1,
             help="interval in seconds between executions of the watched command, defaulting to 2")
     parser.add_option('-v', '--verbose', action='store_true')
     return parser
