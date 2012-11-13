@@ -1,6 +1,6 @@
-## Just some Unix utilities.
+# Just some Unix utilities.
 
-# `trigger`
+## `trigger`
 
 `trigger` is kind of like `watch`, but more easily scriptable.
 
@@ -17,7 +17,7 @@ tell you when to watch:
 
     trigger -n 30 "curl --silent http://gdata.youtube.com/feeds/api/users/Rashad8821/uploads\?v\=2\ | ack -i jeopardy | wc -l" "say 'Jeopardy is ready\!'"
 
-# `random`
+## `random`
 
 Returns a random line from the passed file(s). For example, printing a random line from two files:
 
@@ -27,7 +27,7 @@ Choosing a random file in a directory:
 
     ls | random -
 
-# `lns`
+## `lns`
 
 Never get confused by `ln -s`'s syntax again! Just pass two things you want to
 symlink, and it is done. For example, these two outputs have the same effect
@@ -37,7 +37,7 @@ make).
     lns foo bar
     lns bar foo
 
-# `pmp`
+## `pmp`
 
 My fork of [Poor Man's Profiler](http://poormansprofiler.org). Just pass in a
 pid and get consolidated stacktraces. Tested on OS X and Ubuntu.
